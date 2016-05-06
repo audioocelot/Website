@@ -2,11 +2,19 @@
 {% block content %}
     {# Content goes here #}
     <div class="jumbotron">
-        <div class="container">
-            <h1>Welcome...</h1>
+        <img id="baseImg" src="/static/img/Ocelot_Logo.png"/>// under construction
+        <div id="buttonDiv">
+            <button id="AUbutton" class="ripple"> About Us </button>
+            <button id="Ubutton" class="ripple"> Upload a Song </button>
+            <button id="Rbutton" class="ripple"> Record a Clip </button>
         </div>
     </div>
-    <div class="container">
+
+    <div id="aboutUs" class="container">
+        <h3> About Us </h3>
+        <p> coming soon </p>
+    </div>
+    <div id="upload" class="container">
         <div class="">
             <h3>Upload Song</h3>
             <form id="audio-upload" action="{{ url_for('upload') }}" method=POST enctype=multipart/form-data>
@@ -15,12 +23,13 @@
             </form>
             <h3 id="fileIsUploaded"></h3>
             <ul id="uploadedPlaylist">
-
             </ul>
         </div>
+    </div>
+    <div id="record" class="container">
         <div class="">
             <h3>Record 20 second music clip</h3>
-            <button id="recordButton" onclick="startRecording(this);">record</button>
+            <button id="recordButton" onclick="startRecording(this);" class="ripple">record</button>
             <div class="progress progress-striped">
                 <div class="progress-bar" style="width: 0%;">
                 </div>
@@ -31,7 +40,7 @@
             </ul>
         </div>
     </div>
-    <div class="result-div">
+    <div id="result-div">
         <ul id="result-list">
 
         </ul>
@@ -41,4 +50,6 @@
     <script src="{{ url_for('static', filename='js/recorder.js') }}"></script>
     <script src="{{ url_for('static', filename='js/audio-capture.js') }}"></script>
     <script src="{{ url_for('static', filename='js/upload-song.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-2.2.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/page-handler.js') }}"></script>
 {% endblock %}

@@ -33,7 +33,7 @@ def upload():
         # result = net.activate(data)
         # network_file.close()
         categories_sorted = category_sorted([.5, .1, .6, .05, .27, .0, .0, .23])
-        print categories_sorted
+        print(categories_sorted)
         response = get_playlist(categories_sorted)
         response['genres'] = categories_sorted
         return jsonify(response)
